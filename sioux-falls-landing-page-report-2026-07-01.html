@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sioux Falls Landing Page Report — July 1, 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy-deep: #070F18;
+    --navy: #0D1B2A;
+    --navy-mid: #0F2035;
+    --navy-panel: #122236;
+    --navy-light: #1A3050;
+    --steel-1: #7A8FA3;
+    --steel-2: #8A9BB0;
+    --steel-3: #A0B4C8;
+    --steel-4: #C8D8E8;
+    --gold: #C9932F;
+    --gold-light: #E8AC45;
+    --cream: #F0EEE9;
+    --white: #FFFFFF;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    color: var(--navy);
+    padding: 48px 24px;
+  }
+
+  .container { max-width: 1080px; margin: 0 auto; }
+
+  header {
+    background: linear-gradient(135deg, var(--navy-deep), var(--navy-mid));
+    color: var(--white);
+    border-radius: 16px;
+    padding: 40px 44px;
+    margin-bottom: 32px;
+  }
+
+  .eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+
+  h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 34px;
+    font-weight: 400;
+    margin-bottom: 8px;
+  }
+
+  .subtitle {
+    color: var(--steel-4);
+    font-size: 15px;
+    margin-bottom: 20px;
+  }
+
+  .meta-row {
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: var(--steel-3);
+    border-top: 1px solid rgba(255,255,255,0.12);
+    padding-top: 18px;
+  }
+
+  .meta-row strong { color: var(--white); font-weight: 600; }
+
+  .meta-row a { color: var(--gold-light); text-decoration: none; }
+
+  section {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 0 1px 3px rgba(13,27,42,0.06);
+  }
+
+  h2 {
+    font-family: 'DM Serif Display', serif;
+    font-weight: 400;
+    font-size: 22px;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+
+  .section-note {
+    font-size: 13px;
+    color: var(--steel-1);
+    margin-bottom: 22px;
+  }
+
+  .metric-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+  }
+
+  .metric-card {
+    background: var(--cream);
+    border-radius: 12px;
+    padding: 18px 20px;
+    border: 1px solid #e3ddd2;
+  }
+
+  .metric-label {
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--steel-1);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .metric-value {
+    font-family: 'DM Serif Display', serif;
+    font-size: 30px;
+    color: var(--navy-mid);
+  }
+
+  .metric-value.gold { color: var(--gold); }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+
+  th {
+    text-align: left;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: var(--steel-1);
+    font-weight: 700;
+    padding: 10px 14px;
+    border-bottom: 2px solid var(--navy-light);
+  }
+
+  td {
+    padding: 12px 14px;
+    border-bottom: 1px solid #ece7dd;
+  }
+
+  tr.total-row td {
+    font-weight: 700;
+    background: var(--cream);
+    border-top: 2px solid var(--navy-light);
+    border-bottom: none;
+  }
+
+  tr:hover:not(.total-row) { background: #fafaf7; }
+
+  .source-name { font-weight: 600; color: var(--navy); }
+
+  .bar-cell { width: 220px; }
+
+  .bar-track {
+    background: #ece7dd;
+    border-radius: 6px;
+    height: 10px;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .bar-fill {
+    height: 100%;
+    border-radius: 6px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  }
+
+  .dash { color: var(--steel-2); }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  @media (max-width: 760px) {
+    .metric-grid { grid-template-columns: repeat(2, 1fr); }
+    .two-col { grid-template-columns: 1fr; }
+  }
+
+  footer {
+    text-align: center;
+    font-size: 12px;
+    color: var(--steel-1);
+    padding: 24px 0 8px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <div class="eyebrow">Landing Page Performance</div>
+    <h1>The First Ripple — Sioux Falls, July 16, 2026</h1>
+    <div class="subtitle">hello.letsthink3d.com/the-first-ripple-july-16-2026 · Campaign: Tamien Speaks</div>
+    <div class="meta-row">
+      <div>Status: <strong>Published</strong></div>
+      <div>Published: <strong>June 15, 2026, 9:39 AM</strong></div>
+      <div>Report as of: <strong>July 1, 2026</strong></div>
+      <div>Range: <strong>All data (cumulative to date)</strong></div>
+    </div>
+  </header>
+
+  <section>
+    <h2>Page Metrics</h2>
+    <div class="section-note">Cumulative totals since publish, snapshotted July 1, 2026 from HubSpot's landing page performance report.</div>
+    <div class="metric-grid">
+      <div class="metric-card">
+        <div class="metric-label">Page Views</div>
+        <div class="metric-value gold">170</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Total Form Submissions</div>
+        <div class="metric-value gold">44</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">New Contacts</div>
+        <div class="metric-value">23</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">New Customers</div>
+        <div class="metric-value">5</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Bounce Rate</div>
+        <div class="metric-value">67.11%</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Time per Page View</div>
+        <div class="metric-value">9.1 min</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Exits per Page View</div>
+        <div class="metric-value">87.06%</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Entrances</div>
+        <div class="metric-value">149</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Traffic by Source</h2>
+    <div class="section-note">Where the 170 page views and 44 form submissions came from.</div>
+    <table>
+      <thead>
+        <tr>
+          <th>Source</th>
+          <th class="bar-cell">Page Views</th>
+          <th>Form Submissions</th>
+          <th>New Contacts</th>
+          <th>Contact&nbsp;→&nbsp;Customer</th>
+          <th>New Customers</th>
+          <th>Bounce Rate</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="source-name">Email marketing</td>
+          <td class="bar-cell"><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div>61</td>
+          <td>20</td><td>8</td><td>25%</td><td>2</td><td>58.82%</td>
+        </tr>
+        <tr>
+          <td class="source-name">Other campaigns</td>
+          <td class="bar-cell"><div class="bar-track"><div class="bar-fill" style="width:88%"></div></div>54</td>
+          <td>15</td><td>12</td><td>25%</td><td>3</td><td>61.7%</td>
+        </tr>
+        <tr>
+          <td class="source-name">Direct traffic</td>
+          <td class="bar-cell"><div class="bar-track"><div class="bar-fill" style="width:79%"></div></div>48</td>
+          <td>9</td><td>3</td><td>0%</td><td class="dash">–</td><td>78.72%</td>
+        </tr>
+        <tr>
+          <td class="source-name">Organic search</td>
+          <td class="bar-cell"><div class="bar-track"><div class="bar-fill" style="width:5%"></div></div>3</td>
+          <td class="dash">–</td><td class="dash">–</td><td>0%</td><td class="dash">–</td><td>100%</td>
+        </tr>
+        <tr>
+          <td class="source-name">Organic social</td>
+          <td class="bar-cell"><div class="bar-track"><div class="bar-fill" style="width:3%"></div></div>2</td>
+          <td class="dash">–</td><td class="dash">–</td><td>0%</td><td class="dash">–</td><td>100%</td>
+        </tr>
+        <tr>
+          <td class="source-name">Referrals</td>
+          <td class="bar-cell"><div class="bar-track"><div class="bar-fill" style="width:3%"></div></div>2</td>
+          <td class="dash">–</td><td class="dash">–</td><td>0%</td><td class="dash">–</td><td>0%</td>
+        </tr>
+        <tr class="total-row">
+          <td>Report Total</td>
+          <td class="bar-cell">170</td>
+          <td>44</td><td>23</td><td>21.74%</td><td>5</td><td>67.11%</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <div class="two-col">
+    <section>
+      <h2>Email — UTM Content Breakdown</h2>
+      <div class="section-note">sioux-falls-jul2026 campaign</div>
+      <table>
+        <thead>
+          <tr><th>Email (UTM content)</th><th>Views</th><th>Subs</th><th>New Contacts</th><th>New Cust.</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="source-name">email-blast</td><td>59</td><td>19</td><td>8</td><td>2</td></tr>
+          <tr><td class="source-name">apollo</td><td>2</td><td>1</td><td class="dash">–</td><td class="dash">–</td></tr>
+          <tr class="total-row"><td>Report Total</td><td>61</td><td>20</td><td>8</td><td>2</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Direct — Entrance URL</h2>
+      <div class="section-note">Traffic landing directly on the URL</div>
+      <table>
+        <thead>
+          <tr><th>Entrance URL</th><th>Views</th><th>Subs</th><th>New Contacts</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="source-name">.../the-first-ripple-july-16-2026</td><td>47</td><td>9</td><td>3</td></tr>
+          <tr><td class="source-name">.../404</td><td>1</td><td class="dash">–</td><td class="dash">–</td></tr>
+          <tr class="total-row"><td>Report Total</td><td>48</td><td>9</td><td>3</td></tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+
+  <section>
+    <h2>Other Campaigns — UTM Source / Medium Breakdown</h2>
+    <div class="section-note">sioux-falls-jul2026 campaign — the 14-channel UTM structure, actuals to date</div>
+    <table>
+      <thead>
+        <tr>
+          <th>UTM Source / Medium</th>
+          <th class="bar-cell">Page Views</th>
+          <th>Form Submissions</th>
+          <th>New Contacts</th>
+          <th>Contact&nbsp;→&nbsp;Customer</th>
+          <th>New Customers</th>
+          <th>Bounce Rate</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="source-name">linkedin / organic-social</td>
+          <td class="bar-cell"><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div>18</td>
+          <td>7</td><td>5</td><td>40%</td><td>2</td><td>68.42%</td>
+        </tr>
+        <tr>
+          <td class="source-name">facebook / organic-social</td>
+          <td class="bar-cell"><div class="bar-track"><div class="bar-fill" style="width:94%"></div></div>17</td>
+          <td>4</td><td>3</td><td>0%</td><td class="dash">–</td><td>61.54%</td>
+        </tr>
+        <tr>
+          <td class="source-name">qr-code / print</td>
+          <td class="bar-cell"><div class="bar-track"><div class="bar-fill" style="width:56%"></div></div>10</td>
+          <td>4</td><td>4</td><td>25%</td><td>1</td><td>55.56%</td>
+        </tr>
+        <tr>
+          <td class="source-name">direct-dm / tamien</td>
+          <td class="bar-cell"><div class="bar-track"><div class="bar-fill" style="width:22%"></div></div>4</td>
+          <td class="dash">–</td><td class="dash">–</td><td>0%</td><td class="dash">–</td><td>50%</td>
+        </tr>
+        <tr>
+          <td class="source-name">instagram / link-in-bio</td>
+          <td class="bar-cell"><div class="bar-track"><div class="bar-fill" style="width:22%"></div></div>4</td>
+          <td class="dash">–</td><td class="dash">–</td><td>0%</td><td class="dash">–</td><td>66.67%</td>
+        </tr>
+        <tr>
+          <td class="source-name">linkedin / event-listing</td>
+          <td class="bar-cell"><div class="bar-track"><div class="bar-fill" style="width:6%"></div></div>1</td>
+          <td class="dash">–</td><td class="dash">–</td><td>0%</td><td class="dash">–</td><td>0%</td>
+        </tr>
+        <tr class="total-row">
+          <td>Report Total</td>
+          <td class="bar-cell">54</td>
+          <td>15</td><td>12</td><td>25%</td><td>3</td><td>61.7%</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <footer>
+    Sioux Falls — "The First Ripple" · Snapshot from HubSpot Landing Page Performance report · July 1, 2026
+  </footer>
+
+</div>
+</body>
+</html>
